@@ -27,3 +27,10 @@ logs:
 
 lint:
 	uv run --with black black --check src/
+
+test:
+	curl -v "http://localhost:$(YTSUMMARISER_PORT)/mcp" \
+		-X POST \
+		-H "Content-Type: application/json" \
+		-d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}' \
+		|| echo "Server not running. Run 'make run' first."
