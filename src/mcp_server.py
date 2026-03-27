@@ -8,6 +8,8 @@ import re
 mcp = FastMCP(
     name="YouTube Transcript MCP",
     instructions="Extract transcripts from YouTube videos",
+    host="0.0.0.0",
+    port=9042,
 )
 
 

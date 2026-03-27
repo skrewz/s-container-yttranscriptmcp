@@ -24,6 +24,6 @@ USER mcp
 
 ENV PYTHONUNBUFFERED=1
 
-EXPOSE 8000
+EXPOSE 9042
 
 CMD ["python", "mcp_server.py"]
