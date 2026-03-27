@@ -16,7 +16,11 @@ make run
 
 The server will be available at `http://localhost:9042/mcp`
 
-Feel free to hit it with `make test` at this stage.
+Feel free to hit it with the provided helper tool:
+
+```
+$ uv run --with fastmcp python3 invoke_mcp.py https://www.youtube.com/watch?v=dQw4w9WgXcQ
+```
 
 Or use the MCP Inspector:
 ```bash
