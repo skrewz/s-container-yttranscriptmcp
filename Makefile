@@ -1,7 +1,8 @@
-.PHONY: build run clean inspect
+.PHONY: build run clean inspect lint
 
 IMAGE_NAME := youtube-transcript-mcp
 CONTAINER_NAME := youtube-transcript-mcp-server
+VENV := .venv
 
 build:
 	podman build -t $(IMAGE_NAME) .
@@ -24,3 +25,11 @@ inspect:
 
 logs:
 	podman logs -f $(CONTAINER_NAME)
+
+$(VENV):
+	python3 -m venv $(VENV)
+	$(VENV)/bin/pip install --upgrade pip
+	$(VENV)/bin/pip install black
+
+lint: $(VENV)
+	$(VENV)/bin/black --check src/

@@ -13,9 +13,9 @@ mcp = FastMCP(
 
 def extract_video_id(url_or_id: str) -> str:
     """Extract YouTube video ID from URL or ID."""
-    if re.match(r'^[a-zA-Z0-9_-]{11}$', url_or_id):
+    if re.match(r"^[a-zA-Z0-9_-]{11}$", url_or_id):
         return url_or_id
-    pattern = r'(?:https?://)?(?:www\.)?(?:youtube\.com/(?:watch\?v=|embed/|v/)|youtu\.be/)([a-zA-Z0-9_-]{11})'
+    pattern = r"(?:https?://)?(?:www\.)?(?:youtube\.com/(?:watch\?v=|embed/|v/)|youtu\.be/)([a-zA-Z0-9_-]{11})"
     match = re.search(pattern, url_or_id)
     if match:
         return match.group(1)
@@ -25,10 +25,10 @@ def extract_video_id(url_or_id: str) -> str:
 @mcp.tool()
 def fetch_transcript(url: str) -> str:
     """Extract full transcript from YouTube video.
-    
+
     Args:
         url: YouTube video URL or video ID
-        
+
     Returns:
         Full transcript text with all segments concatenated
     """
@@ -43,10 +43,10 @@ def fetch_transcript(url: str) -> str:
 @mcp.tool()
 def list_transcripts(url: str) -> str:
     """List available transcript languages for a video.
-    
+
     Args:
         url: YouTube video URL or video ID
-        
+
     Returns:
         Newline-separated list of available languages
     """
