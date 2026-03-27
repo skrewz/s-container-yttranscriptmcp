@@ -3,13 +3,14 @@
 
 from mcp.server.fastmcp import FastMCP
 from youtube_transcript_api import YouTubeTranscriptApi
+import os
 import re
 
 mcp = FastMCP(
     name="YouTube Transcript MCP",
     instructions="Extract transcripts from YouTube videos",
     host="0.0.0.0",
-    port=9042,
+    port=int(os.environ.get("YTSUMMARISER_PORT", "9042")),
 )
 
 
