@@ -5,7 +5,7 @@ CONTAINER_NAME := youtube-transcript-mcp-server
 YTSUMMARISER_PORT ?= 9042
 
 build:
-	podman build -t $(IMAGE_NAME) .
+	podman build --no-cache -t $(IMAGE_NAME) .
 
 run: build
 	podman run --replace --rm --name $(CONTAINER_NAME) -p $(YTSUMMARISER_PORT):$(YTSUMMARISER_PORT) -e YTSUMMARISER_PORT=$(YTSUMMARISER_PORT) $(IMAGE_NAME)
