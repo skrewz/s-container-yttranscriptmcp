@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""YouTube Transcript MCP Server with HTTP/SSE transport"""
+"""YT Transcript MCP Server with HTTP/SSE transport"""
 
 from mcp.server.fastmcp import FastMCP
 from youtube_transcript_api import YouTubeTranscriptApi
@@ -10,7 +10,7 @@ mcp = FastMCP(
     name="YouTube Transcript MCP",
     instructions="Extract transcripts from YouTube videos",
     host="0.0.0.0",
-    port=int(os.environ.get("YTSUMMARISER_PORT", "9042")),
+    port=int(os.environ.get("YTTRANSCRIPTMCP_PORT", "9042")),
 )
 
 
@@ -45,7 +45,7 @@ def fetch_transcript(url: str) -> str:
 
 @mcp.tool()
 def list_transcripts(url: str) -> str:
-    """List available transcript languages for a video.
+    """List available transcript languages for a YouTube video.
 
     Args:
         url: YouTube video URL or video ID
